@@ -42,6 +42,7 @@ function Navbar() {
           <Image src="/menu.png" alt="Menu" width={30} height={30} />
         </button>
       </nav>
+      {/*mobile navbar*/}
       {menu && (
         <div className="fixed inset-0 z-50 bg-white flex flex-col items-center justify-center gap-8 p-5 md:hidden">
           <button className="self-end mb-5" onClick={toggleMenu}>

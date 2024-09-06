@@ -3,12 +3,12 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 function banner() {
   return (
-    <div className="container ma-auto flex items-center p-20 ">
-      <div className="md:w-[60%] w-96">
+    <div className="container mx-auto flex items-center md:p-20 pt-5">
+      <div className="md:w-[60%] w-80">
         <p className="text-2xl bg-[#CE7C8C] p-2 w-32 text-white font-semibold rounded">
           Sale 70%
         </p>
-        <p className="mt-10 mb-10 md:text-7xl text-5xl font-bold md:w-[70%] w-96">
+        <p className="mt-10 mb-10 md:text-7xl text-5xl font-bold md:w-[70%] w-80">
           An Industrial Take on Streetwear
         </p>
         <p className="text-gray-500 w-[60%]">
