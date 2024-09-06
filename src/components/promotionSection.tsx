@@ -1,13 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import { Button } from "./ui/button";
+
 function promotionSection() {
   return (
     <>
       <p className="text-center mt-5 mb-2 text-[#C8707E] font-sans font-semibold">
         PROMOTION
       </p>
-      <p className="text-center text-4xl font-semibold md:mb-5 mb-20">
+      <p className="text-center md:text-4xl text-2xl font-semibold md:mb-5 mb-20">
         Our Promotions Events
       </p>
       <div className="container mx-auto grid md:grid-cols-4 grid-rows-1 md:p-20">
