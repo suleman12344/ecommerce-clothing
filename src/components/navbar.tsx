@@ -19,7 +19,7 @@ function Navbar() {
           Dine Market
         </Link>
         <div className="hidden md:flex items-center gap-14">
-          <Link href="/" className="hover:text-gray-500">
+          <Link href="/female" className="hover:text-gray-500">
             Female
           </Link>
           <Link href="/" className="hover:text-gray-500">
@@ -49,7 +49,7 @@ function Navbar() {
             <Image src="/close.png" alt="Close Menu" width={50} height={50} />
           </button>
           <Link
-            href="/"
+            href="/female"
             className="text-xl hover:text-gray-500"
             onClick={toggleMenu}
           >
