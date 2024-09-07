@@ -7,7 +7,7 @@ function femaleProduct() {
   return (
     <div className="container mx-auto grid md:grid-cols-4 grid-cols-2 md:gap-20 gap-10 pt-20">
       {female.map((items) => (
-        <Link key={items.ID} href="/">
+        <Link key={items.ID} href={`/female/${items.ID}`}>
           <Image
             src={`/female/${items.image_path}`}
             alt="Image is not found"
