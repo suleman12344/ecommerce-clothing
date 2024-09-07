@@ -1,7 +1,7 @@
 import React from "react";
 
-function page() {
-  return <div>page</div>;
+function femaleproductdetail() {
+  return <div>femaleproductdetail</div>;
 }
 
-export default page;
+export default femaleproductdetail;
