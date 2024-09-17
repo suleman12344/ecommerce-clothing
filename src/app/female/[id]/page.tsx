@@ -71,7 +71,9 @@ function Femaleproductdetail({ params }: dataDetailPageProps) {
           </div>
         </div>
       </div>
-      {female_detail?.ID && <Productinfo id={female_detail.ID} cate="female" />}
+      {female_detail?.ID && (
+        <Productinfo id={female_detail.ID} cate={"female"} />
+      )}
     </>
   );
 }
