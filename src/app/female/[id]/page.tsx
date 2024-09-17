@@ -1,27 +1,37 @@
+// page.tsx
 "use client";
-import React from "react";
 import { female } from "@/constants/female";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Productinfo from "@/components/productinfo";
-function dataFec(id: string) {
-  const data = female.find((items) => {
-    return items.ID === id;
-  });
-  return data;
-}
-type dataDetailPageProps = {
-  params: {
-    id: string;
-  };
-};
-function Femaleproductdetail({ params }: dataDetailPageProps) {
-  //console.log(params);
+import { useState } from "react";
+import { useCart } from "@/components/cartcontext";
+
+function Femaleproductdetail({ params }: { params: { id: string } }) {
+  const [count, setCount] = useState(1);
+  const { addToCart } = useCart();
+
+  function incCount() {
+    setCount(count + 1);
+  }
+
+  function decCount() {
+    if (count === 0) {
+      return;
+    }
+    setCount(count - 1);
+  }
+  function dataFec(id: string) {
+    const data = female.find((items) => {
+      return items.ID === id;
+    });
+    return data;
+  }
+
   const female_detail = dataFec(params.id);
-  console.log(female_detail);
+
   return (
     <>
-      {" "}
       <div className="container mx-auto grid md:pt-20 pt-16 md:grid-cols-6 grid-cols-4 gap-10 ">
         <div>
           <Image
@@ -30,7 +40,7 @@ function Femaleproductdetail({ params }: dataDetailPageProps) {
             width={100}
             height={100}
             className="ml-auto"
-          ></Image>
+          />
         </div>
 
         <div className="flex justify-center items-center col-span-3">
@@ -39,7 +49,6 @@ function Femaleproductdetail({ params }: dataDetailPageProps) {
             alt="Image is not found"
             width="600"
             height="600"
-            className=""
           />
         </div>
         <div className="md:col-span-2 col-span-4 mt-20">
@@ -57,16 +66,22 @@ function Femaleproductdetail({ params }: dataDetailPageProps) {
           </div>
           <div className="flex mt-5 items-center gap-10">
             <p className="font-bold">Quantity</p>
-            <button className="rounded-full ps-3 pe-3 pb-1 bg-gray-200 text-3xl">
+            <button
+              className="rounded-full ps-3 pe-3 pb-1 bg-gray-200 text-3xl"
+              onClick={decCount}
+            >
               -
             </button>
-            <p className="font-bold text-xl">1</p>
-            <button className="rounded-full text-3xl border-2 ps-2 pe-2 pb-1">
+            <p className="font-bold text-xl">{count}</p>
+            <button
+              className="rounded-full text-3xl border-2 ps-2 pe-2 pb-1"
+              onClick={incCount}
+            >
               +
             </button>
           </div>
           <div className="mt-5 flex items-center gap-10">
-            <Button>Add to cart</Button>
+            <Button onClick={() => addToCart(count)}>Add to cart</Button>
             <p className="font-bold text-2xl">${female_detail?.price}.00</p>
           </div>
         </div>
