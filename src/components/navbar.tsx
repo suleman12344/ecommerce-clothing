@@ -22,7 +22,7 @@ function Navbar() {
           <Link href="/female" className="hover:text-gray-500">
             Female
           </Link>
-          <Link href="/" className="hover:text-gray-500">
+          <Link href="/male" className="hover:text-gray-500">
             Male
           </Link>
           <Link href="/" className="hover:text-gray-500">
@@ -56,7 +56,7 @@ function Navbar() {
             Female
           </Link>
           <Link
-            href="/"
+            href="/male"
             className="text-xl hover:text-gray-500"
             onClick={toggleMenu}
           >
