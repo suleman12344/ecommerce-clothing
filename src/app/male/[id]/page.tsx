@@ -5,9 +5,9 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Productinfo from "@/components/productinfo";
 import { useState } from "react";
-import { useCart } from "@/components/cartcontext";
+import { useCart } from "@/components/cartcontext"; // Make sure this has the addToCart implementation
 
-function Femaleproductdetail({ params }: { params: { id: string } }) {
+function MaleProduct({ params }: { params: { id: string } }) {
   const [count, setCount] = useState(1);
   const { addToCart } = useCart();
 
@@ -16,27 +16,25 @@ function Femaleproductdetail({ params }: { params: { id: string } }) {
   }
 
   function decCount() {
-    if (count === 0) {
-      return;
+    if (count > 1) {
+      // Ensure count doesn't go below 1
+      setCount(count - 1);
     }
-    setCount(count - 1);
   }
+
   function dataFec(id: string) {
-    const data = male.find((items) => {
-      return items.ID === id;
-    });
-    return data;
+    return male.find((item) => item.ID === id);
   }
 
   const male_detail = dataFec(params.id);
 
   return (
     <>
-      <div className="container mx-auto grid md:pt-20 pt-16 md:grid-cols-6 grid-cols-4 gap-10 ">
+      <div className="container mx-auto grid md:pt-20 pt-16 md:grid-cols-6 grid-cols-4 gap-10">
         <div>
           <Image
             src={`/male/${male_detail?.image_path}`}
-            alt="Image is not found"
+            alt="Image not found"
             width={100}
             height={100}
             className="ml-auto"
@@ -46,7 +44,7 @@ function Femaleproductdetail({ params }: { params: { id: string } }) {
         <div className="flex justify-center items-center col-span-3">
           <Image
             src={`/male/${male_detail?.image_path}`}
-            alt="Image is not found"
+            alt="Image not found"
             width="600"
             height="600"
           />
@@ -81,7 +79,19 @@ function Femaleproductdetail({ params }: { params: { id: string } }) {
             </button>
           </div>
           <div className="mt-5 flex items-center gap-10">
-            <Button onClick={() => addToCart(count)}>Add to cart</Button>
+            <Button
+              onClick={() => {
+                addToCart({
+                  id: male_detail?.ID || "",
+                  title: male_detail?.title || "",
+                  price: male_detail?.price || "",
+                  count,
+                  identity: "male",
+                });
+              }}
+            >
+              Add to cart
+            </Button>
             <p className="font-bold text-2xl">${male_detail?.price}.00</p>
           </div>
         </div>
@@ -91,4 +101,4 @@ function Femaleproductdetail({ params }: { params: { id: string } }) {
   );
 }
 
-export default Femaleproductdetail;
+export default MaleProduct;

@@ -1,23 +1,47 @@
-// CartContext.tsx
 "use client";
 import { createContext, useContext, useState, ReactNode } from "react";
 
+// Define types for cart items
+type CartItem = {
+  id: string;
+  title: string;
+  price: string;
+  count: number;
+  identity: string;
+};
+
 type CartContextType = {
+  cartItems: CartItem[];
+  setCartItems: React.Dispatch<React.SetStateAction<CartItem[]>>; // Add setCartItems here
   cartCount: number;
-  addToCart: (quantity: number) => void;
+  addToCart: (item: CartItem) => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [cartCount, setCartCount] = useState(0);
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  const addToCart = (quantity: number) => {
-    setCartCount(cartCount + quantity);
+  const cartCount = cartItems.reduce((total, item) => total + item.count, 0);
+
+  const addToCart = (item: CartItem) => {
+    const existingItemIndex = cartItems.findIndex(
+      (cartItem) => cartItem.id === item.id
+    );
+
+    if (existingItemIndex !== -1) {
+      const updatedItems = [...cartItems];
+      updatedItems[existingItemIndex].count += item.count;
+      setCartItems(updatedItems);
+    } else {
+      setCartItems((prevItems) => [...prevItems, item]);
+    }
   };
 
   return (
-    <CartContext.Provider value={{ cartCount, addToCart }}>
+    <CartContext.Provider
+      value={{ cartItems, setCartItems, cartCount, addToCart }}
+    >
       {children}
     </CartContext.Provider>
   );

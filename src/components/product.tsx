@@ -16,7 +16,7 @@ function product() {
         {female
           .filter((items) => items.ID <= "3") // Filter items where ID is less than or equal to 3
           .map((items) => (
-            <Link href="/" key={items.ID}>
+            <Link href="/" key={items.ID} className="scale-95 hover:scale-100 ">
               <Image
                 src={`/female/${items.image_path}`}
                 alt="Image not found"

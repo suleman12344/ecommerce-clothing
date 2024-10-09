@@ -81,7 +81,19 @@ function Femaleproductdetail({ params }: { params: { id: string } }) {
             </button>
           </div>
           <div className="mt-5 flex items-center gap-10">
-            <Button onClick={() => addToCart(count)}>Add to cart</Button>
+            <Button
+              onClick={() => {
+                addToCart({
+                  id: female_detail?.ID || "",
+                  title: female_detail?.title || "",
+                  price: female_detail?.price || "",
+                  count,
+                  identity: "female",
+                });
+              }}
+            >
+              Add to cart
+            </Button>
             <p className="font-bold text-2xl">${female_detail?.price}.00</p>
           </div>
         </div>

@@ -13,6 +13,7 @@ export const male = [
       "Hang it to dry.",
       "Iron on low temperature.",
     ],
+    identity: "male",
   },
   {
     ID: "2",
@@ -28,6 +29,7 @@ export const male = [
       "Hang it to dry.",
       "Iron on low temperature.",
     ],
+    identity: "male",
   },
   {
     ID: "3",
@@ -43,6 +45,7 @@ export const male = [
       "Hang it to dry.",
       "Iron on low temperature.",
     ],
+    identity: "male",
   },
   {
     ID: "4",
@@ -58,6 +61,7 @@ export const male = [
       "Hang it to dry.",
       "Iron on low temperature.",
     ],
+    identity: "male",
   },
   {
     ID: "5",
@@ -73,6 +77,7 @@ export const male = [
       "Hang it to dry.",
       "Iron on low temperature.",
     ],
+    identity: "male",
   },
   {
     ID: "6",
@@ -88,6 +93,7 @@ export const male = [
       "Hang it to dry.",
       "Iron on low temperature.",
     ],
+    identity: "male",
   },
   {
     ID: "7",
@@ -103,6 +109,7 @@ export const male = [
       "Hang it to dry.",
       "Iron on low temperature.",
     ],
+    identity: "male",
   },
   {
     ID: "8",
@@ -118,6 +125,7 @@ export const male = [
       "Hang it to dry.",
       "Iron on low temperature.",
     ],
+    identity: "male",
   },
   {
     ID: "9",
@@ -133,5 +141,6 @@ export const male = [
       "Hang it to dry.",
       "Iron on low temperature.",
     ],
+    identity: "male",
   },
 ];
