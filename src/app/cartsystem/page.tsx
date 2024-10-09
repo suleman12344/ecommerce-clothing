@@ -4,6 +4,8 @@ import Image from "next/image";
 import { female } from "@/constants/female";
 import { male } from "@/constants/male";
 import { useCart } from "@/components/cartcontext";
+import { ToastContainer, toast } from "react-toastify"; // Updated import
+import "react-toastify/dist/ReactToastify.css";
 
 // Define the data type
 type data_type = {
@@ -12,8 +14,8 @@ type data_type = {
   title: string;
   category: string;
   price: string;
-  productDetail: string; // Corrected property name
-  productCare: string; // Assuming this is a string
+  productDetail: string;
+  productCare: string;
   identity: string;
 };
 
@@ -29,8 +31,8 @@ const dataFec = (id: string, identity: string): data_type | undefined => {
       title: item.title,
       category: item.category,
       price: item.price,
-      productDetail: item.productDestail, // Corrected property name
-      productCare: item.productCare.join(", "), // Ensure this is a string
+      productDetail: item.productDestail,
+      productCare: item.productCare.join(", "),
       identity: item.identity,
     };
   }
@@ -44,9 +46,21 @@ function Cartsystem() {
 
   useEffect(() => {
     const itemsData = cartItems.map((item) => dataFec(item.id, item.identity));
-    setData(itemsData.filter(Boolean) as data_type[]); // Type assertion is safe now
+    setData(itemsData.filter(Boolean) as data_type[]);
     setCounts(cartItems.map((item) => item.count));
   }, [cartItems]);
+
+  const notify = () => {
+    toast("Your product has been placed", {
+      position: "top-center",
+      autoClose: 2000,
+    });
+
+    // Delay emptying the cart to allow the toast to be displayed
+    setTimeout(() => {
+      emptycart(); // Call emptycart after a delay
+    }, 2600); // Delay just a bit longer than the toast duration
+  };
 
   const incCount = (index: number) => {
     const newCounts = [...counts];
@@ -54,11 +68,16 @@ function Cartsystem() {
     setCounts(newCounts);
 
     const updatedItem = { ...cartItems[index], count: newCounts[index] };
-
     const updatedCartItems = cartItems.map((item, i) =>
       i === index ? updatedItem : item
     );
     setCartItems(updatedCartItems);
+  };
+
+  const emptycart = () => {
+    setCartItems([]);
+    setData([]);
+    setCounts([]);
   };
 
   const decCount = (index: number) => {
@@ -68,7 +87,6 @@ function Cartsystem() {
       setCounts(newCounts);
 
       const updatedItem = { ...cartItems[index], count: newCounts[index] };
-
       const updatedCartItems = cartItems.map((item, i) =>
         i === index ? updatedItem : item
       );
@@ -80,7 +98,6 @@ function Cartsystem() {
     const new_data = [...data];
     new_data.splice(index, 1);
     setData(new_data);
-
     setCounts((newCounts) => newCounts.filter((_, i) => i !== index));
 
     const updatedCartItems = cartItems.filter((_, i) => i !== index);
@@ -177,9 +194,24 @@ function Cartsystem() {
               )}
             </p>
           </div>
-          <button className="w-full bg-black text-white py-3 rounded-lg font-bold hover:bg-gray-900 transition">
+          <button
+            className="w-full bg-black text-white py-3 rounded-lg font-bold hover:bg-gray-900 transition"
+            onClick={notify} // Call the notify function
+          >
             Checkout
           </button>
+          <ToastContainer
+            position="top-center"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
         </div>
       </div>
     </div>
