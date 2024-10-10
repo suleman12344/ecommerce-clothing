@@ -7,10 +7,18 @@ import Productinfo from "@/components/productinfo";
 import { useState } from "react";
 import { useCart } from "@/components/cartcontext";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function Femaleproductdetail({ params }: { params: { id: string } }) {
   const [count, setCount] = useState(1);
   const { addToCart } = useCart();
-
+  const notify = () => {
+    toast("Product added to the cart", {
+      position: "top-center",
+      autoClose: 1000,
+    });
+  };
   function incCount() {
     setCount(count + 1);
   }
@@ -83,6 +91,7 @@ function Femaleproductdetail({ params }: { params: { id: string } }) {
           <div className="mt-5 flex items-center gap-10">
             <Button
               onClick={() => {
+                notify();
                 addToCart({
                   id: female_detail?.ID || "",
                   title: female_detail?.title || "",
@@ -94,6 +103,18 @@ function Femaleproductdetail({ params }: { params: { id: string } }) {
             >
               Add to cart
             </Button>
+            <ToastContainer
+              position="top-center"
+              autoClose={2000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
             <p className="font-bold text-2xl">${female_detail?.price}.00</p>
           </div>
         </div>

@@ -81,7 +81,9 @@ function Navbar() {
             placeholder="What are you looking for?"
             className="w-72"
           />
-          <CartButton />
+          <button onClick={toggleMenu}>
+            <CartButton />
+          </button>
         </div>
       )}
     </>

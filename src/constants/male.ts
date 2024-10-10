@@ -2,7 +2,7 @@ export const male = [
   {
     ID: "1",
     image_path: "male1.jpg",
-    title: "Brushed Bomber",
+    title: "OverSize T shirt",
     category: "Shirt",
     price: "225",
     productDestail:
@@ -18,7 +18,7 @@ export const male = [
   {
     ID: "2",
     image_path: "male2.jpg",
-    title: "Lite Sweatpants",
+    title: "OverSize T shirt",
     category: "Shirt",
     price: "150",
     productDestail:
@@ -34,7 +34,7 @@ export const male = [
   {
     ID: "3",
     image_path: "male3.jpg",
-    title: "Brushed Raglan Sweatshirt",
+    title: "printed T shirt",
     category: "Shirt",
     price: "195",
     productDestail:
@@ -50,7 +50,7 @@ export const male = [
   {
     ID: "4",
     image_path: "male4.jpg",
-    title: "Flex Sweatshirt",
+    title: "Botton Shirt",
     category: "Shirt",
     price: "175",
     productDestail:
@@ -66,7 +66,7 @@ export const male = [
   {
     ID: "5",
     image_path: "male5.jpg",
-    title: "Imperial Alpaca Hoodie",
+    title: "SkinColor Shirt",
     category: "Shirt",
     price: "525",
     productDestail:
@@ -82,7 +82,7 @@ export const male = [
   {
     ID: "6",
     image_path: "male6.jpg",
-    title: "Pink Fleece Sweatpants",
+    title: "OverSize T Shirt",
     category: "Shirt",
     price: "195",
     productDestail:
@@ -98,7 +98,7 @@ export const male = [
   {
     ID: "7",
     image_path: "male7.jpg",
-    title: "Muscle Tank",
+    title: "Classic White Shirt",
     category: "Shirt",
     price: "75",
     productDestail:
@@ -114,7 +114,7 @@ export const male = [
   {
     ID: "8",
     image_path: "male8.jpg",
-    title: "Flex Sweatpants",
+    title: "relax fit shirt",
     category: "Shirt",
     price: "175",
     productDestail:
@@ -130,7 +130,7 @@ export const male = [
   {
     ID: "9",
     image_path: "male9.jpg",
-    title: "Cameryn Sash Tie Dress",
+    title: "OverSize Shirt",
     category: "Shirt",
     price: "547",
     productDestail:
