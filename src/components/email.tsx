@@ -6,7 +6,9 @@ function email() {
   return (
     <main className="container mx-auto relative">
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center leading-loose">
-        <p className="text-4xl font-bold">Subscribe Our Newsletter</p>
+        <p className="md:text-4xl text-2xl font-bold">
+          Subscribe Our Newsletter
+        </p>
         <p className="font-extralight">
           Get the latest information and promo offers directly
         </p>
@@ -15,8 +17,8 @@ function email() {
           <Button>Get Started</Button>
         </div>
       </div>
-      <div className="p-20 ">
-        <p className="text-9xl font-bold text-center text-gray-200">
+      <div className="p-20 flex justify-center">
+        <p className="md:text-9xl text-5xl font-bold text-center text-gray-200">
           Newsletter
         </p>
       </div>
