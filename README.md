@@ -59,9 +59,3 @@ Dine Market is a modern, responsive ecommerce web application for clothing, buil
 This project is for educational and demonstration purposes.
 
 ---
-
-## Resume Points
-
-1. **Developed a full-stack ecommerce clothing web application using Next.js, React, and Tailwind CSS, featuring dynamic product listings, category pages, and a responsive, modern UI.**
-2. **Implemented a robust shopping cart system with React Context API, enabling real-time cart updates, quantity management, and checkout simulation with user notifications.**
-3. **Engineered reusable UI components and integrated third-party libraries (Radix UI, Framer Motion, React Toastify) to enhance user experience, accessibility, and maintainability.**
